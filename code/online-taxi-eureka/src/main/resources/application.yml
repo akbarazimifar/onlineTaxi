@@ -1,0 +1,69 @@
+# 应用名称
+spring:
+  application:
+    name: online-taxi-eureka
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: false
+      #    service-url:
+    # 5 24
+  #      defaultZone: http://eureka-7900:7900/eureka/ #,http://eureka-7901:7901/eureka/,http://eureka-7902:7902/eureka/
+  #      #,http://localhost:7901/eureka/,http://localhost:7902/eureka/
+  server:
+    # 关闭自我保护，根据服务数量，衡量。
+    enable-self-preservation: false
+    # 自我保护阈值
+    renewal-percent-threshold: 0.85
+    # 剔除服务时间间隔
+    eviction-interval-timer-in-ms: 1000
+    # 关闭从readOnly读注册表
+    use-read-only-response-cache: false
+    # readWrite 和 readOnly 同步时间间隔。
+    response-cache-update-interval-ms: 1000
+  instance:
+    appname: ${spring.application.name}
+#    my-url: http://localhost:7900/eureka/
+
+
+---
+spring:
+  profiles: 7900
+server:
+  port: 7900
+eureka:
+  instance:
+    # replications
+    hostname: eureka-7900
+  client:
+    service-url:
+      # 5 24
+      defaultZone: http://localhost:7900/eureka/,http://localhost:7901/eureka/
+
+---
+spring:
+  profiles: 7901
+server:
+  port: 7901
+eureka:
+  instance:
+    hostname: eureka-7901
+  client:
+    service-url:
+      # 5 24
+      defaultZone: http://localhost:7901/eureka/ ,http://localhost:7900/eureka/
+---
+spring:
+  profiles: 7902
+server:
+  port: 7902
+eureka:
+  instance:
+    hostname: eureka-7902
+
+  client:
+    service-url:
+      # 5 24
+      defaultZone: http://localhost:7902/eureka/ #,http://localhost:7900/eureka/
+
+
