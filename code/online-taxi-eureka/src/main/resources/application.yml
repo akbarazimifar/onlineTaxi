@@ -1,29 +1,24 @@
-# 应用名称
 spring:
   application:
     name: online-taxi-eureka
+
 eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: false
-      #    service-url:
-    # 5 24
-  #      defaultZone: http://eureka-7900:7900/eureka/ #,http://eureka-7901:7901/eureka/,http://eureka-7902:7902/eureka/
-  #      #,http://localhost:7901/eureka/,http://localhost:7902/eureka/
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    register-with-eureka: true # 集群节点间是否互相注册
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://eureka-7900:7900/eureka/,http://eureka-7901:7901/eureka/,http://eureka-7902:7902/eureka/
+  # 以下优化均为对于eureka对于注册中心的优化措施
   server:
-    # 关闭自我保护，根据服务数量，衡量。
-    enable-self-preservation: false
-    # 自我保护阈值
-    renewal-percent-threshold: 0.85
-    # 剔除服务时间间隔
-    eviction-interval-timer-in-ms: 1000
-    # 关闭从readOnly读注册表
-    use-read-only-response-cache: false
-    # readWrite 和 readOnly 同步时间间隔。
-    response-cache-update-interval-ms: 1000
-  instance:
-    appname: ${spring.application.name}
-#    my-url: http://localhost:7900/eureka/
+    enable-self-preservation: false # 自我保护
+    renewal-percent-threshold: 0.85 # 自我保护阈值
+    eviction-interval-timer-in-ms: 1000 # 剔除服务时间间隔 , 这里可进行优化，比如 快速下线，源码实现是用timer，这种实现并不好
+    use-read-only-response-cache: false # 服务注册信息是使用的三级缓存结构的，register 、readWriteCache、readOnlyCache，readWriteCache和readOnlyCache之间是30s同步一次，故eureka只有ap特性
+    response-cache-update-interval-ms: 1000 # （readWriteCache和readOnlyCache之间）默认 30s 更新一次，优化这个配置可以提高服务的可用性
+
+
 
 
 ---
@@ -33,13 +28,12 @@ server:
   port: 7900
 eureka:
   instance:
-    # replications
     hostname: eureka-7900
   client:
+#    register-with-eureka: true # 集群节点间是否互相注册
+#    fetch-registry: true
     service-url:
-      # 5 24
-      defaultZone: http://localhost:7900/eureka/,http://localhost:7901/eureka/
-
+      defaultZone: http://eureka-7901:7901/eureka/
 ---
 spring:
   profiles: 7901
@@ -49,9 +43,10 @@ eureka:
   instance:
     hostname: eureka-7901
   client:
+#    register-with-eureka: true # 集群节点间是否互相注册
+#    fetch-registry: true
     service-url:
-      # 5 24
-      defaultZone: http://localhost:7901/eureka/ ,http://localhost:7900/eureka/
+      defaultZone: http://eureka-7902:7902/eureka/
 ---
 spring:
   profiles: 7902
@@ -60,10 +55,8 @@ server:
 eureka:
   instance:
     hostname: eureka-7902
-
   client:
+#    register-with-eureka: true # 集群节点间是否互相注册
+#    fetch-registry: true
     service-url:
-      # 5 24
-      defaultZone: http://localhost:7902/eureka/ #,http://localhost:7900/eureka/
-
-
+      defaultZone: http://eureka-7900:7900/eureka/
