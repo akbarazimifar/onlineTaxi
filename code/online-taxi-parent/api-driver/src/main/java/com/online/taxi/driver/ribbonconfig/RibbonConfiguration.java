@@ -39,9 +39,9 @@ public class RibbonConfiguration {
 	 * 自定义rule
 	 * @return
 	 */
-//	@Bean
-//	public IRule ribbonRule() {
-//		return new MsbRandomRule();
-//	}
+	@Bean
+	public IRule ribbonRule() {
+		return new MsbRandomRule();
+	}
 	
 }

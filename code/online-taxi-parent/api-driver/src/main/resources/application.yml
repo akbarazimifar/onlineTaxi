@@ -29,29 +29,31 @@ eureka:
       
     
 #手写ribbon        
-#service-sms: 
-#  ribbon: 
+service-sms:
+  ribbon:
 #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    NFLoadBalancerRuleClassName: com.online.taxi.driver.ribbonconfig.MsbRandomRule
 #    eureka: 
 #      enable: false
 #    listOfServers: localhost:8004,localhost:8005
 
 #正常ribbon
-SERVICE-SMS:
-  ribbon:
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#service-sms:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
     # 自定义负载策略
 #    NFLoadBalancerRuleClassName: com.online.taxi.driver.ribbonconfig.MsbRandomRule
     
-#service-valuation: 
-#  ribbon: 
+service-valuation:
+  ribbon:
 #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    NFLoadBalancerRuleClassName: com.online.taxi.driver.ribbonconfig.MsbRandomRule
 
 ribbon:
   eager-load:
     enabled: false
-    clients:
-    - SERVICE-SMS
+#    clients:
+#    - SERVICE-SMS
 #    - SERVICE-VERIFICATION-CODE
 #  http:
 #    client:

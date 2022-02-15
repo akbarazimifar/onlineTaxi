@@ -6,11 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.online.taxi.common.dto.ResponseResult;
 import com.online.taxi.driver.service.ShortMsgService;
@@ -52,11 +48,12 @@ public class SmsController {
 	@Autowired
 	private LoadBalancerClient loadBalancerClient;
 	
-	@GetMapping("/choseServiceName")
-	public ResponseResult choseServiceName() {
-		String serviceName = "service-sms";
+	@GetMapping("/choseServiceName/{name}")
+	public ResponseResult choseServiceName(@PathVariable String name) {
+//		String serviceName = "service-sms";
+		String serviceName = name;
 		ServiceInstance si = loadBalancerClient.choose(serviceName);
-		System.out.println("sms节点信息：url:"+si.getHost()+",port:"+si.getPort());
+		System.out.println("节点信息：url:"+si.getHost()+",port:"+si.getPort());
 		
 		return ResponseResult.success("");
 	}

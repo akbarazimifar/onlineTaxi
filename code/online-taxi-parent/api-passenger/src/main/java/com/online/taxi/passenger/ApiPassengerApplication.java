@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.web.client.RestTemplate;
 
-import com.online.taxi.passenger.annotation.ExcudeFeignConfig;
+import com.online.taxi.passenger.annotation.ExcludeFeignConfig;
 
 
 /**
@@ -21,12 +21,12 @@ import com.online.taxi.passenger.annotation.ExcudeFeignConfig;
 @SpringBootApplication
 @EnableFeignClients
 //@EnableCircuitBreaker
-@ComponentScan(
-        basePackages = {"com.online.taxi"},
-        excludeFilters = {
-		    @ComponentScan.Filter(type = FilterType.ANNOTATION,value=ExcudeFeignConfig.class)
-        }
-)
+//@ComponentScan(
+//        basePackages = {"com.online.taxi"},
+//        excludeFilters = {
+//		    @ComponentScan.Filter(type = FilterType.ANNOTATION,value=ExcludeFeignConfig.class)
+//        }
+//)
 public class ApiPassengerApplication {
 
 	public static void main(String[] args) {
@@ -35,7 +35,7 @@ public class ApiPassengerApplication {
 	
 	
 	@Bean
-//	@LoadBalanced
+	@LoadBalanced
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
 	}

@@ -2,10 +2,13 @@
 spring: 
   application: 
     name: service-valuation
-  security: 
-    user: 
+  security:
+    user:
       name: root
-      password: root  profiles:    active:    - 8060
+      password: root
+  profiles:
+    active:
+    - 8060
 
 #注册中心
 eureka: 
@@ -25,11 +28,13 @@ management:
     health:
       show-details: ALWAYS
 ---
-spring:  profiles: 8060
+spring:
+  profiles: 8060
 server: 
   port: 8060
 ---
 spring:
   profiles: 8061
 server: 
-  port: 8061       
+  port: 8061 
+      
