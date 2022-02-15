@@ -68,7 +68,7 @@ eureka:
 
       # 向多节点注册
 #      defaultZone: http://root:root@eureka-7901:7901/eureka/,http://root:root@eureka-7902:7902/eureka/,http://root:root@eureka-7903:7903/eureka/
-  instance: 
+  instance:
     virtual-host-name: service-sms
     #服务刷新时间配置，每隔这个时间会主动心跳一次
     lease-renewal-interval-in-seconds: 1      
@@ -78,7 +78,8 @@ eureka:
     metadata-map:
       user.name: root
       user.password: root
-    
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
 #Admin监控
 management:
   endpoints:

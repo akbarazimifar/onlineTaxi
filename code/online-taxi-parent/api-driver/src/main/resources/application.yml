@@ -2,8 +2,8 @@
 spring: 
   application: 
     name: api-driver
-    admin:
-      enabled: true
+#    admin:
+#      enabled: true
 #  redis:
 #    database: 0
 #    host: 127.0.0.1
@@ -18,10 +18,10 @@ spring:
 #    sampler:
 #      rate: 1
 #注册中心
-eureka: 
+eureka:
   client:
     #设置服务注册中心的URL
-    service-url:                      
+    service-url:
       defaultZone: http://root:root@eureka-7900:7900/eureka/
 #    enabled: false
 #  instance:
@@ -37,9 +37,9 @@ eureka:
 #    listOfServers: localhost:8004,localhost:8005
 
 #正常ribbon
-#SERVICE-SMS:  
-#  ribbon:  
-#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+SERVICE-SMS:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
     # 自定义负载策略
 #    NFLoadBalancerRuleClassName: com.online.taxi.driver.ribbonconfig.MsbRandomRule
     
@@ -47,11 +47,11 @@ eureka:
 #  ribbon: 
 #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 
-#ribbon:
-#  eager-load:
-#    enabled: true
-#    clients:
-#    - SERVICE-SMS
+ribbon:
+  eager-load:
+    enabled: false
+    clients:
+    - SERVICE-SMS
 #    - SERVICE-VERIFICATION-CODE
 #  http:
 #    client:
@@ -60,16 +60,16 @@ eureka:
 #    enabled: false   
 
 #Admin监控
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    health:
-      ##默认是never
-      show-details: ALWAYS
-      enabled: true
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  endpoint:
+#    health:
+#      ##默认是never
+#      show-details: ALWAYS
+#      enabled: true
           
 logging:
   level:

@@ -1,6 +1,6 @@
 package com.online.taxi.driver.ribbonconfigscan;
 
-import org.springframework.cloud.netflix.ribbon.RibbonClient;
+//import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.context.annotation.Configuration;
 
 import com.online.taxi.driver.ribbonconfig.RibbonConfiguration;

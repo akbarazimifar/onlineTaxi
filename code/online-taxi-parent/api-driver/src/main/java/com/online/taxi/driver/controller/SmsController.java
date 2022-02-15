@@ -37,11 +37,11 @@ public class SmsController {
 	 */
 	@PostMapping("/verify-code/send")
 	public ResponseResult verifyCodeSend(@RequestBody @Validated ShortMsgRequest shortMsgRequest) {
-		
+//		return ResponseResult.success("success");
 		String phoneNumber = shortMsgRequest.getPhoneNumber();
-
-		//获取验证码-正常代码
-//		String code = verificationCodeService.getCode(phoneNumber);
+//
+//		//获取验证码-正常代码
+////		String code = verificationCodeService.getCode(phoneNumber);
 		String code = "010101";
 		log.info("service-verification-code 返回的验证码：{}",code);
 		return shortMsgService.send(phoneNumber, code);
