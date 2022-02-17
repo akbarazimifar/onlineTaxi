@@ -1,6 +1,8 @@
 package com.online.taxi.passenger.feign;
 
 import com.online.taxi.common.dto.sms.SmsSendRequest;
+import com.online.taxi.passenger.fallback.SmsClientFallbackFactory;
+import com.online.taxi.passenger.feign.config.FeignDisableHystrixConfiguration;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +17,7 @@ import com.online.taxi.passenger.fallback.SmsClientFallback;
 
 
 //@FeignClient(name = "service-sms",configuration = FeignDisableHystrixConfiguration.class)
-//@FeignClient(name = "service-sms",fallbackFactory = SmsClientFallbackFactory.class)
+//@FeignClient(name = "service-sms",fallbackFactory = SmsClientFallbackFactory.class) // Feign 服务调用时，捕获异常
 @FeignClient(name = "service-sms",fallback = SmsClientFallback.class)
 //@FeignClient(name = "service-sms")
 public interface SmsClient {

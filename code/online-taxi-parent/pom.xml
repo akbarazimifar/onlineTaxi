@@ -33,9 +33,10 @@
 		<!--基础服务层-->
 		<module>eureka</module>
 		<module>online-taxi-config-server</module>
-		<module>online-taxi-zuul</module>
+		<module>zuul</module>
         <module>hystrix-dashboard</module>
         <module>cloud-admin</module>
+		<module>turbine</module>
 
 		<!--通用层-->
 		<module>online-taxi-common</module>

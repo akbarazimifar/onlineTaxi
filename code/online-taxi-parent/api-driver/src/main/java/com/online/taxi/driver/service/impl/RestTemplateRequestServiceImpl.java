@@ -1,6 +1,10 @@
 package com.online.taxi.driver.service.impl;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.online.taxi.common.dto.sms.SmsSendRequest;
+import com.online.taxi.driver.exception.BusinessException;
+import com.online.taxi.driver.exception.HystrixIgnoreException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -19,7 +23,7 @@ public class RestTemplateRequestServiceImpl implements RestTemplateRequestServic
 	private RestTemplate restTemplate;
 	
 	@Override
-//	@HystrixCommand(fallbackMethod = "sendFail")
+	@HystrixCommand(fallbackMethod = "sendFail")
 //	@HystrixCommand(fallbackMethod = "sendFail",ignoreExceptions = {HystrixIgnoreException.class},
 //	commandProperties = {
 //			@HystrixProperty(name = "fallback.enabled",value = "true"),
@@ -32,8 +36,9 @@ public class RestTemplateRequestServiceImpl implements RestTemplateRequestServic
 //			int i = 1/0;
 //		} catch (Exception e) {
 //			// TODO: handle exception
-//			throw new BusinessException("熔断忽略的异常，继承HystrixBadRequestException");
-////			throw new HystrixIgnoreException("熔断忽略的异常，忽略属性设置");
+////			throw new BusinessException("熔断忽略的异常，继承HystrixBadRequestException");
+////			throw new ArithmeticException("除数不为零！");
+//			throw new HystrixIgnoreException("熔断忽略的异常，忽略属性设置");
 //		}
 		
 		String url = HttpUrlConstants.SERVICE_SMS_URL + "/send/alisms-template";
@@ -44,7 +49,7 @@ public class RestTemplateRequestServiceImpl implements RestTemplateRequestServic
 //		//备用逻辑
 //		return ResponseResult.fail(-3, "resttemplate熔断");
 //	}
-	
+	// RestTemplate 服务调用时，捕获异常
 	private ResponseResult sendFail(SmsSendRequest smsSendRequest ,Throwable throwable) {
 		log.info("异常信息："+throwable);
 		//备用逻辑

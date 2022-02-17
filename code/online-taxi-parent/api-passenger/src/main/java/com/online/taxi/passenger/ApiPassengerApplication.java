@@ -20,13 +20,13 @@ import com.online.taxi.passenger.annotation.ExcludeFeignConfig;
 @EnableEurekaClient
 @SpringBootApplication
 @EnableFeignClients
-//@EnableCircuitBreaker
-//@ComponentScan(
-//        basePackages = {"com.online.taxi"},
-//        excludeFilters = {
-//		    @ComponentScan.Filter(type = FilterType.ANNOTATION,value=ExcludeFeignConfig.class)
-//        }
-//)
+@EnableCircuitBreaker
+@ComponentScan(
+        basePackages = {"com.online.taxi"},
+        excludeFilters = {
+		    @ComponentScan.Filter(type = FilterType.ANNOTATION,value=ExcludeFeignConfig.class)
+        }
+)
 public class ApiPassengerApplication {
 
 	public static void main(String[] args) {

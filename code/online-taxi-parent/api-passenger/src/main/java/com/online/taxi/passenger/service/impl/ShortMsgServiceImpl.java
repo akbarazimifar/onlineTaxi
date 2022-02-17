@@ -7,6 +7,7 @@ import java.util.List;
 import com.online.taxi.common.dto.sms.SmsSendRequest;
 import com.online.taxi.common.dto.sms.SmsTemplateDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.online.taxi.common.dto.ResponseResult;
@@ -21,7 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class ShortMsgServiceImpl implements ShortMsgService {
-	
+
 	@Autowired
 	private SmsClient smsClient;
 	

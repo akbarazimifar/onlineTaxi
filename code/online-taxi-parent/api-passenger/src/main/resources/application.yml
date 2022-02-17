@@ -40,8 +40,8 @@ feign:
 #      - text/xml
 #      min-request-size: 2048
 #  #开启feignhystrix
-#  hystrix:
-#    enabled: true
+  hystrix:
+    enabled: true
    
     
 

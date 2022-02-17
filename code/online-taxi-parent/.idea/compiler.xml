@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="turbine" />
         <module name="service-verification-code" />
         <module name="online-taxi-config-server" />
         <module name="api-passenger" />
@@ -14,8 +15,8 @@
         <module name="eureka" />
         <module name="service-jms-consumer" />
         <module name="service-wallet" />
-        <module name="online-taxi-zuul" />
         <module name="service-jms-produce" />
+        <module name="zuul" />
         <module name="service-order" />
         <module name="api-driver" />
         <module name="service-order-dispatch" />
@@ -44,7 +45,6 @@
       <module name="online-taxi-config-server" target="1.8" />
       <module name="online-taxi-demo-app" target="1.8" />
       <module name="online-taxi-parent" target="1.8" />
-      <module name="online-taxi-zuul" target="1.8" />
       <module name="service-app-update" target="1.8" />
       <module name="service-jms-consumer" target="1.8" />
       <module name="service-jms-produce" target="1.8" />
@@ -55,6 +55,8 @@
       <module name="service-valuation" target="1.8" />
       <module name="service-verification-code" target="1.8" />
       <module name="service-wallet" target="1.8" />
+      <module name="turbine" target="1.8" />
+      <module name="zuul" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -70,7 +72,6 @@
       <module name="online-taxi-common" options="-parameters" />
       <module name="online-taxi-config-server" options="-parameters" />
       <module name="online-taxi-demo-app" options="-parameters" />
-      <module name="online-taxi-zuul" options="-parameters" />
       <module name="service-app-update" options="-parameters" />
       <module name="service-jms-consumer" options="-parameters" />
       <module name="service-jms-produce" options="-parameters" />
@@ -81,6 +82,7 @@
       <module name="service-valuation" options="-parameters" />
       <module name="service-verification-code" options="-parameters" />
       <module name="service-wallet" options="-parameters" />
+      <module name="zuul" options="-parameters" />
     </option>
   </component>
 </project>

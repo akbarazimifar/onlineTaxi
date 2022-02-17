@@ -14,7 +14,6 @@
       <module fileurl="file://$PROJECT_DIR$/online-taxi-config-server/online-taxi-config-server.iml" filepath="$PROJECT_DIR$/online-taxi-config-server/online-taxi-config-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/online-taxi-demo-app/online-taxi-demo-app.iml" filepath="$PROJECT_DIR$/online-taxi-demo-app/online-taxi-demo-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/online-taxi-parent.iml" filepath="$PROJECT_DIR$/online-taxi-parent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/online-taxi-zuul/online-taxi-zuul.iml" filepath="$PROJECT_DIR$/online-taxi-zuul/online-taxi-zuul.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-app-update/service-app-update.iml" filepath="$PROJECT_DIR$/service-app-update/service-app-update.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-jms-consumer/service-jms-consumer.iml" filepath="$PROJECT_DIR$/service-jms-consumer/service-jms-consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-jms-produce/service-jms-produce.iml" filepath="$PROJECT_DIR$/service-jms-produce/service-jms-produce.iml" />
@@ -25,6 +24,8 @@
       <module fileurl="file://$PROJECT_DIR$/service-valuation/service-valuation.iml" filepath="$PROJECT_DIR$/service-valuation/service-valuation.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-verification-code/service-verification-code.iml" filepath="$PROJECT_DIR$/service-verification-code/service-verification-code.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-wallet/service-wallet.iml" filepath="$PROJECT_DIR$/service-wallet/service-wallet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/turbine/turbine.iml" filepath="$PROJECT_DIR$/turbine/turbine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zuul/zuul.iml" filepath="$PROJECT_DIR$/zuul/zuul.iml" />
     </modules>
   </component>
 </project>

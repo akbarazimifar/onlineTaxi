@@ -1,0 +1,16 @@
+# 应用名称
+spring:
+  application:
+    name: turbine
+server:
+  port: 6102
+
+turbine:
+  app-config: api-driver,api-passenger
+  cluster-name-expression: "'default'"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:root@eureka-7900:7900/eureka/
+

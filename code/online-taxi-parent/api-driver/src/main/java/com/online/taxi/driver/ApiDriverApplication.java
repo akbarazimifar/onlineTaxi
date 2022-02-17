@@ -2,7 +2,7 @@ package com.online.taxi.driver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-//import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 //import org.springframework.cloud.netflix.hystrix.EnableHystrix;
@@ -21,8 +21,8 @@ import com.online.taxi.driver.ribbonconfig.RibbonConfiguration;
  * @author yueyi2019
  */
 
-//@EnableCircuitBreaker
-//@EnableHystrix
+@EnableCircuitBreaker
+//@EnableHystrix 效果与 @EnableCircuitBreaker 相同
 // 扫描不包括 注解修饰的类
 @SpringBootApplication
 @ComponentScan(

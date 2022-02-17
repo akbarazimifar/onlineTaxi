@@ -59,19 +59,19 @@ ribbon:
 #    client:
 #      enabled: false  
 #  okhttp:
-#    enabled: false   
+#    enabled: false
 
 #Admin监控
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: "*"
-#  endpoint:
-#    health:
-#      ##默认是never
-#      show-details: ALWAYS
-#      enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      ##默认是never
+      show-details: ALWAYS
+      enabled: true
           
 logging:
   level:

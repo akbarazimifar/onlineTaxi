@@ -28,8 +28,8 @@ public class SmsClientFallback implements SmsClient {
 //		}else {
 //			System.out.println("通知过了，我先不通知了");
 //		}
-		throw new RuntimeException("异常");
-//		return ResponseResult.fail(-3, "feign熔断");
+//		throw new RuntimeException("异常");
+		return ResponseResult.fail(-3, "feign熔断");
 	}
 
 }
